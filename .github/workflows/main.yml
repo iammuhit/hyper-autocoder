@@ -63,5 +63,5 @@ jobs:
         with:
           labels: autocoder-bot
           author: autocoder-bot <actions@github.com>
-          title: 'Interact with ChatGPT'
+          title: "#${{ github.event.issue.number }}"
           branch: autocoder-branch-${{ github.event.issue.number }}
