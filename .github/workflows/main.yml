@@ -60,6 +60,8 @@ jobs:
 
       - name: Create Pull Request (PR)
         uses: peter-evans/create-pull-request@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           labels: autocoder-bot
           author: autocoder-bot <actions@github.com>
