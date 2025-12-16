@@ -28,5 +28,5 @@ jobs:
         uses: iammuhit/hyper-autocoder@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
-          issue_label: 'autocoder-bot'
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          LABEL: 'autocoder-bot'
