@@ -76,3 +76,4 @@ runs:
         labels: ${{ inputs.LABEL }}
         author: autocoder-bot <actions@github.com>
         branch: autocoder-branch-${{ inputs.ISSUE_NUMBER }}
+        title: "Changes by create-pull-request action #${{ github.event.issue.number }}"
