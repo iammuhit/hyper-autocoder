@@ -61,12 +61,12 @@ runs:
         OPENAI_API_KEY: ${{ inputs.OPENAI_API_KEY }}
         SCRIPT_PATH: ${{ inputs.SCRIPT_PATH }}
 
-    - name: Commit Changes
+    - name: Configure Credentials & Commit Changes
       run: | 
-        git config --local user.name 'autocoder-bot'
-        git config --local user.email 'actions@github.com'
+        git config --local user.name "autocoder-bot"
+        git config --local user.email "actions@github.com"
         git add .
-        git commit -m 'add generated code from chatgpt'
+        git commit -m "add generated code from chatgpt"
       shell: bash
 
     - name: Create Pull Request
