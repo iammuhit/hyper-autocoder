@@ -44,6 +44,9 @@ runs:
       run: echo "Hello, welcome to AutoCoder! Let's generate some code."
       shell: bash
 
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
     - name: Make Script Executable
       run: chmod +x ${SCRIPT_PATH}
       shell: bash
@@ -57,6 +60,14 @@ runs:
         ISSUE_NUMBER: ${{ inputs.ISSUE_NUMBER }}
         OPENAI_API_KEY: ${{ inputs.OPENAI_API_KEY }}
         SCRIPT_PATH: ${{ inputs.SCRIPT_PATH }}
+
+    - name: Commit Changes
+      run: | 
+        git config --local user.name 'autocoder-bot'
+        git config --local user.email 'actions@github.com'
+        git add .
+        git commit -m 'add generated code from chatgpt'
+      shell: bash
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v6
