@@ -1,8 +1,7 @@
 name: AutoCoder
 on:
   issues:
-    types:
-      - labeled
+    types: ["opened", "reopened", "labeled"]
 
 env:
   SCRIPT_PATH: ./scripts/script.sh
