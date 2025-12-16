@@ -44,10 +44,12 @@ runs:
       run: echo "Hello, welcome to AutoCoder! Let's generate some code."
       shell: bash
 
+    - name: Make Script Executable
+      run: chmod +x ${SCRIPT_PATH}
+      shell: bash
+
     - name: Generate Code from Issue
-      run: |
-        chmod +x ${SCRIPT_PATH}
-        sh ${SCRIPT_PATH} ${GITHUB_TOKEN} ${REPOSITORY} ${ISSUE_NUMBER} ${OPENAI_API_KEY}
+      run: ${SCRIPT_PATH} ${GITHUB_TOKEN} ${REPOSITORY} ${ISSUE_NUMBER} ${OPENAI_API_KEY}
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
