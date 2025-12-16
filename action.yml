@@ -3,7 +3,7 @@ description: 'This action automates the process of generating code from GitHub i
 author: 'Nurul Amin Muhit'
 
 inputs:
-  github_token:
+  GITHUB_TOKEN:
     description: 'Personal access token (PAT) used for GitHub API authentication. This token is required to create pull requests and handle other repository interactions.'
     required: true
     default: ${{ github.token }}
@@ -52,7 +52,7 @@ runs:
       run: ${SCRIPT_PATH} ${GITHUB_TOKEN} ${REPOSITORY} ${ISSUE_NUMBER} ${OPENAI_API_KEY}
       shell: bash
       env:
-        GITHUB_TOKEN: ${{ inputs.github_token }}
+        GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
         REPOSITORY: ${{ inputs.github_repository }}
         ISSUE_NUMBER: ${{ inputs.issue_number }}
         OPENAI_API_KEY: ${{ inputs.openai_api_key }}
@@ -61,7 +61,7 @@ runs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v6
       with:
-        token: ${{ inputs.github_token }}
+        token: ${{ inputs.GITHUB_TOKEN }}
         labels: ${{ inputs.issue_label }}
         author: autocoder-bot <actions@github.com>
         branch: autocoder-branch-${{ inputs.issue_number }}

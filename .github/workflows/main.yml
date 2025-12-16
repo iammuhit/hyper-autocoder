@@ -27,6 +27,6 @@ jobs:
       - name: AutoCoder Composite Action
         uses: iammuhit/hyper-autocoder@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
           issue_label: 'autocoder-bot'
